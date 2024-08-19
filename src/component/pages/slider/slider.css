@@ -1,0 +1,55 @@
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.page-item {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: black;
+    border: none;
+    background-color: transparent;
+    list-style: none;
+    cursor: pointer;
+}
+
+.page-item.active {
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.icon-prev,
+.icon-next {
+    cursor: pointer;
+    margin: 0 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.icon {
+    fill: black;
+    width: 30px;
+    height: 30px;
+}
+
+.icon:hover {
+    fill: #555;
+}
+
+.pagination > .icon-prev > svg,
+.pagination > .icon-next > svg {
+    vertical-align: middle;
+}
