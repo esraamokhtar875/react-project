@@ -5,22 +5,23 @@ import WatchList from "../component/pages/Watch/watch";
 import NotFound from "../component/notfound/notfound";
 import Details from "../component/pdaitels/details";
 import AppNavbar from "../component/pages/nav/nav";
-// import Search from "../component/pages/search/Search";
+import { useParams } from "react-router-dom";
 
 function AppRoute() {
-    return (
-        <>
-            <BrowserRouter>
-                <AppNavbar />
-                <Routes>
-                    <Route path="/" element={<Home />}></Route> */
-                    <Route path="/watchlist" element={<WatchList />}></Route>
-                    <Route path="/Favorites" element={<Favorites />}></Route>
-                    <Route path="/details" element={<Details />}></Route>
-                    <Route path="*" element={<NotFound />}></Route>
-                </Routes>
-            </BrowserRouter>
-        </>
-    );
+  return (
+    <>
+      <BrowserRouter>
+        <AppNavbar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route> */
+          <Route path="/search/:searchQuery" element={<Home />} />
+          <Route path="/watchlist" element={<WatchList />}></Route>
+          <Route path="/Favorites" element={<Favorites />}></Route>
+          <Route path="/details/:id" element={<Details />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 export default AppRoute;

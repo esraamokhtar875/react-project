@@ -1,0 +1,38 @@
+.star-rating {
+    display: inline-flex;
+    font-size: 1.5em;
+    color: #FFD700; /* Gold color for stars */
+    position: relative;
+  }
+  
+  .star {
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    overflow: hidden;
+  }
+  
+  .star::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #FFD700; /* Gold color for stars */
+  }
+  
+  .star.filled {
+    color: #FFD700; /* Gold color for stars */
+  }
+  
+  .star.half-filled::before {
+    width: 50%;
+    color: #FFD700; /* Gold color for stars */
+  }
+  
+  .star.half-filled::after {
+    content: '★';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    color: #E0E0E0; /* Gray color for the empty part of the star */
+  }
