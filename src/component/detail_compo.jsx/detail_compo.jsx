@@ -2,6 +2,8 @@ import { Button, Col, Row } from "react-bootstrap";
 import "./detail.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
+import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 function Detail_compo({ movie, Recommend = [] }) {
   const {
@@ -17,11 +19,8 @@ function Detail_compo({ movie, Recommend = [] }) {
     genres,
   } = movie;
 
-  const stars = Array(5)
-    .fill(false)
-    .map((_, index) => index < vote_average);
-  const fullStars = Math.floor(vote_average);
-  const hasHalfStar = vote_average % 1 >= 0.5;
+  const fullStars = Math.floor(vote_average / 2);
+  const hasHalfStar = (vote_average / 2) % 1 >= 0.5;
   const totalStars = 5;
 
   return (
@@ -47,30 +46,39 @@ function Detail_compo({ movie, Recommend = [] }) {
             </h1>
             <p style={{ color: "gray" }}>{release_date} </p>
           </p>
-          <div className="star-rating" style={{ marginBottom: "20px" }}>
+          <div className="">
             {Array.from({ length: totalStars }, (_, index) => {
               if (index < fullStars) {
                 return (
-                  <span key={index} className="star filled">
-                    ★
-                  </span>
+                  <FontAwesomeIcon
+                    style={{ color: "black" , fontSize: "25px"}}
+                    key={index}
+                    icon={faStar}
+                    className="star filled"
+                  />
                 );
               } else if (index === fullStars && hasHalfStar) {
                 return (
-                  <span key={index} className="star half-filled">
-                    ★
-                  </span>
+                  <FontAwesomeIcon
+                    style={{ color: "black" , fontSize: "25px"}}
+                    key={index}
+                    icon={faStarHalfAlt}
+                    className="star half-filled"
+                  />
                 );
               } else {
                 return (
-                  <span key={index} className="star">
-                    ★
-                  </span>
+                  <FontAwesomeIcon
+                    key={index}
+                    icon={faStarRegular}
+                    className="star empty"
+                    style={{ opacity: 0.5, fontSize: "30px" }}
+                  />
                 );
               }
             })}
+            <span style={{fontSize:"25px",color:"gray",margin:"20px"}}>{vote_count}</span>
           </div>
-          {vote_count}
 
           <p style={{ width: "838px", height: "145px", fontSize: "24px" }}>
             {overview}
